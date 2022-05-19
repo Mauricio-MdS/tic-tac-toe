@@ -1,6 +1,40 @@
 # Tic Tac Toe
 
-A tic tac toe game
+A tic tac toe game made in react
+<br>
+
+## Table of Contents
+
+* [How to play](#how-to-play)
+* [Technologies](#technologies)
+* [Available Scripts](#avaiable-scripts)
+
+<br>
+
+## How to play
+
+<br>
+
+## Technologies
+
+<div>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width=30px/>        
+  React
+</div>
+<div>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" width=30px/>
+  Javascript
+</div>
+<div>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" width=30px/>
+  HTML
+</div>
+<div>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" width=30px/>        
+  CSS
+</div>
+        
+<br>
 
 ## Available Scripts
 

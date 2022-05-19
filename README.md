@@ -13,7 +13,15 @@ A tic tac toe game made in react
 
 ## How to play
 
-<br>
+This game can be played at [https://mauricio-mds.github.io/tic-tac-toe/](https://mauricio-mds.github.io/tic-tac-toe/)
+
+Player X and player O play interchangeably. Plays are saved in React states and can be reversed in the side options.
+
+<br/>
+
+<img src="./src/assets/tic-tac-toe.jpg" alt="">
+
+<br/>
 
 ## Technologies
 

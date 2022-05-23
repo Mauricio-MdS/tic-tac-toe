@@ -9,10 +9,11 @@ export default class Game extends React.Component {
     super(props);
     this.state = {
       history : [ {
+        move: null,
         squares: Array(9).fill(null)
       }],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: true,
     };
   }
 
@@ -39,6 +40,7 @@ export default class Game extends React.Component {
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
+    const move = i;
     const squares = current.squares.slice();
     if (this.calculateWinner(squares) || squares[i]) {
       return;
@@ -46,6 +48,7 @@ export default class Game extends React.Component {
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       history: history.concat([{
+        move: move,
         squares: squares
       }]),
       stepNumber: history.length,
@@ -60,6 +63,37 @@ export default class Game extends React.Component {
     });
   }
 
+  squareToColRow(i){
+    switch (i){
+      case 0:
+        return '(1, 1)';
+      case 1:
+        return '(1, 2)';
+      case 2:
+        return '(1, 3)';
+      case 3:
+        return '(2, 1)';
+      case 4:
+        return '(2, 2)';
+      case 5:
+        return '(2, 3)';
+      case 6:
+        return '(3, 1)';
+      case 7:
+        return '(3, 2)';
+      case 8:
+        return '(3, 3)';
+      default:
+        throw Error('unexpected value');
+    }
+  }
+
+  showMove(numberOfMoves, squareMoved){
+    return `Go to move #${numberOfMoves},
+      ${(numberOfMoves % 2) === 0 ? 'O' : 'X'} in
+      ${this.squareToColRow(squareMoved)}`; 
+  }
+
   render() {
 
     const history = this.state.history;
@@ -68,7 +102,7 @@ export default class Game extends React.Component {
 
     const moves = history.map( (step, move) => {
       const description = move ?
-        'Go to move #' + move :
+        this.showMove(move, step.move):
         'Go to game start';
       return (
         <li key = {move}>

@@ -14,7 +14,12 @@ export default function Info(props){
         'Go to game start';
       return (
         <li key = {move}>
-          <button onClick={() => jumpTo(move)}>{description}</button>
+          <button 
+            className={step === current && 'current'}
+            onClick={() => jumpTo(move)}
+          >
+            {description}
+          </button>
         </li>
       );
     });

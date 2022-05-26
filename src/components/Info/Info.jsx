@@ -15,7 +15,7 @@ export default function Info(props){
       return (
         <li key = {move}>
           <button 
-            className={step === current && 'current'}
+            className={step === current ? 'current' : ''}
             onClick={() => jumpTo(move)}
           >
             {description}

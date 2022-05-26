@@ -3,33 +3,36 @@ import './Board.css';
 
 export default function Board(props) {
 
-  function renderSquare(i) {
-    return (
-      <Square
-        value={props.squares[i]}
-        onClick={() => props.onClick(i)}
-      />
-    );
+  function renderLine(line) {
+    const squares = [];
+    for (let i = 0; i < 3; i++){
+      const squareNumber = 3*line + i;
+      squares.push(
+        <Square
+          key = {squareNumber}
+          value={props.squares[squareNumber]}
+          onClick={() => props.onClick(squareNumber)}
+        />
+      )
+    }
+    return squares;
   }
+
+  const listLines = [];
+
+  for (let i = 0; i < 3; i++){
+    listLines.push(renderLine(i));
+  }
+
+  const lines = listLines.map((line, index) => (
+    <div key={index} className="board-row">
+      {line}
+    </div>
+  ));
 
   return (
       <div>
-        <div className="board-row">
-          {renderSquare(0)}
-          {renderSquare(1)}
-          {renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {renderSquare(3)}
-          {renderSquare(4)}
-          {renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {renderSquare(6)}
-          {renderSquare(7)}
-          {renderSquare(8)}
-        </div>
+        {lines}
       </div>
   );
-  
 }

@@ -1,4 +1,5 @@
 import calculateWinner from '../../common/calculateWinner/calculateWinner';
+import Toggle from '../Toggle/Toggle';
 import './Info.css';
 
 export default function Info(props){
@@ -70,7 +71,11 @@ export default function Info(props){
 
   return(
     <div className = 'game-info'>
-          <div className = 'status'>{status}</div>
+          <div className = 'status'>
+            {status}
+            <Toggle disabled={moves.length < 2}/>
+            Toggle move order
+          </div>
           <ol>{moves}</ol>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import calculateWinner from '../../common/calculateWinner/calculateWinner';
 import Toggle from '../Toggle/Toggle';
 import './Info.css';
@@ -8,6 +9,7 @@ export default function Info(props){
   
   const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
+  const [invertedMoves, setInvertedMoves] = useState(false);
 
   const moves = history.map( (step, move) => {
     const description = move ?
@@ -73,10 +75,14 @@ export default function Info(props){
     <div className = 'game-info'>
           <div className = 'status'>
             {status}
-            <Toggle disabled={moves.length < 2}/>
+            <Toggle 
+              disabled={moves.length < 2} 
+              invertedMoves = {invertedMoves}
+              setInvertedMoves={setInvertedMoves}
+            />
             Toggle move order
           </div>
-          <ol>{moves}</ol>
+          <ol>{invertedMoves ? moves.reverse() : moves}</ol>
     </div>
   );
   
